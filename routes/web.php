@@ -12,46 +12,46 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'InicioController@index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/contato', 'ContatoController@contato')->name('contato');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/ogadmin', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('table-list', function () {
-		return view('pages.table_list');
-	})->name('table');
+//	Route::get('table-list', function () {
+//		return view('pages.table_list');
+//	})->name('table');
+//
+//	Route::get('typography', function () {
+//		return view('pages.typography');
+//	})->name('typography');
+//
+//	Route::get('icons', function () {
+//		return view('pages.icons');
+//	})->name('icons');
+//
+//	Route::get('map', function () {
+//		return view('pages.map');
+//	})->name('map');
+//
+//	Route::get('notifications', function () {
+//		return view('pages.notifications');
+//	})->name('notifications');
+//
+//	Route::get('rtl-support', function () {
+//		return view('pages.language');
+//	})->name('language');
+//
+//	Route::get('upgrade', function () {
+//		return view('pages.upgrade');
+//	})->name('upgrade');
 
-	Route::get('typography', function () {
-		return view('pages.typography');
-	})->name('typography');
-
-	Route::get('icons', function () {
-		return view('pages.icons');
-	})->name('icons');
-
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
-
-	Route::get('upgrade', function () {
-		return view('pages.upgrade');
-	})->name('upgrade');
+	Route::get('galeria', 'GaleriaController@index')->name('galeria');
+    Route::post('inserir-imagem-galeria', 'GaleriaController@inserir')->name('inserir-galeria');
+    Route::get('deleta-imagem-galeria/{id}', 'GaleriaController@deletar')->name('deletar-galeria');
 });
 
 Route::group(['middleware' => 'auth'], function () {
