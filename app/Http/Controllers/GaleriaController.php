@@ -19,7 +19,7 @@ class GaleriaController extends Controller
         $request->file('imagem')->store('uploads',['disk' => 'public']);
         $dir = 'storage/uploads/' . $request->file('imagem')->hashName();
 
-        Galeria::create(['caminho' => $dir]);
+        Galeria::create(['caminho' => $dir, 'titulo' => $request['titulo'], 'texto' => $request['texto']]);
 
         return redirect('galeria');
     }

@@ -29,6 +29,23 @@
     <link href="{{ asset('template/css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('template/css/main.css') }}" rel="stylesheet">
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '280317139852970');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=280317139852970&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 <body>
 <header id="header">
@@ -62,13 +79,10 @@
     <div class="container">
         <div class="row fullscreen align-items-center justify-content-between">
             <div class="col-lg-12 banner-content">
-                <h6 class="text-white">Wide Options of Choice</h6>
-                <h1 class="text-white">Delicious Recipes</h1>
-                <p class="text-white">
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                    standards especially in the workplace. That’s why it’s crucial that, as women.
-                </p>
-                <a class="primary-btn text-uppercase" href="#">Check Our Menu</a>
+{{--                <h6 class="text-white" style="text-shadow: 0px 5px 7px black;">Wide Options of Choice</h6>--}}
+                <h1 class="text-white" style="text-shadow: 0px 5px 7px black;">Qual experiência sua comida vai proporcionar?</h1>
+                <p class="text-white" style="text-shadow: 0px 5px 7px black;">Cada cozinha, uma história, cada momento um sabor e cada fotografia registra tudo isso para seu cliente e  você comerem com os olhos.</p>
+                <a class="primary-btn text-uppercase" href="#galeria">Veja nossa galeria</a>
             </div>
         </div>
     </div>
@@ -80,13 +94,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 home-about-left">
-                <h1>About Our Story</h1>
-                <p>
-                    Who are in extremely love with eco friendly system. Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <a class="primary-btn" href="#">view full menu</a>
+                <h1>Nossa história</h1>
+                <p>Criado através da paixão por gastronomia e de lazer, o casal Juliana Galimberti e Luiz Phillipe Dondone Cometti iniciaram a empresa, vendo a adversidade que pequenos empreendedores do ramo culinário apresentavam e resolveram aplicar seus conhecimentos em fotografia, identidade visual, gestão estratégica e marketing.</p>
+{{--                <a class="primary-btn" href="#">view full menu</a>--}}
             </div>
             <div class="col-lg-6 home-about-right">
                 <img alt="" class="img-fluid" src="{{ asset('template/img/about-img.jpg') }}">
@@ -196,58 +206,64 @@
 <section class="gallery-area section-gap" id="galeria">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
+            <div class="menu-content col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Food and Customer Gallery</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
+                    <h1 class="mb-10">Empresas que já investiram na sua imagem</h1>
+{{--                    <p>Empresas que já investiram na sua imagem</p>--}}
                 </div>
             </div>
         </div>
 
-{{--        <ul class="filter-wrap filters col-lg-12 no-padding">--}}
-{{--            <li class="active" data-filter="*">All Menu</li>--}}
-{{--            <li data-filter=".breakfast">Breakfast</li>--}}
-{{--            <li data-filter=".lunch">Lunch</li>--}}
-{{--            <li data-filter=".dinner">Dinner</li>--}}
-{{--            <li data-filter=".budget-meal">Budget Meal</li>--}}
-{{--            <li data-filter=".buffet">Buffet</li>--}}
-{{--        </ul>--}}
+        {{--        <ul class="filter-wrap filters col-lg-12 no-padding">--}}
+        {{--            <li class="active" data-filter="*">All Menu</li>--}}
+        {{--            <li data-filter=".breakfast">Breakfast</li>--}}
+        {{--            <li data-filter=".lunch">Lunch</li>--}}
+        {{--            <li data-filter=".dinner">Dinner</li>--}}
+        {{--            <li data-filter=".budget-meal">Budget Meal</li>--}}
+        {{--            <li data-filter=".buffet">Buffet</li>--}}
+        {{--        </ul>--}}
 
 
         <div class="filters-content">
             <div class="row grid">
                 @foreach($imagens as $imagem)
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery">
-                            <img alt="Olho Gordo" class="img-fluid" src="{{ asset($imagem['caminho']) }}">
+                        <div class="single-service text-center">
+                            <div class="thumb">
+                                <img alt="Olho Gordo" class="img-fluid" src="{{ asset($imagem['caminho']) }}">
+                            </div>
+                            <a>
+                                <h4>{{ $imagem['titulo'] }}</h4>
+                            </a>
+                            <p>{{ $imagem['texto'] }}</p>
                         </div>
                     </div>
                 @endforeach
-{{--                <div class="col-lg-4 col-md-6 col-sm-6 all dinner">--}}
-{{--                    <div class="single-gallery">--}}
-{{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g2.jpg') }}">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 col-sm-6 all budget-meal">--}}
-{{--                    <div class="single-gallery">--}}
-{{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g3.jpg') }}">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 col-sm-6 all breakfast">--}}
-{{--                    <div class="single-gallery">--}}
-{{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g4.jpg') }}">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 col-sm-6 all lunch">--}}
-{{--                    <div class="single-gallery">--}}
-{{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g5.jpg') }}">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4 col-md-6 col-sm-6 all buffet">--}}
-{{--                    <div class="single-gallery">--}}
-{{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g6.jpg') }}">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                <div class="col-lg-4 col-md-6 col-sm-6 all dinner">--}}
+                {{--                    <div class="single-gallery">--}}
+                {{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g2.jpg') }}">--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div class="col-lg-4 col-md-6 col-sm-6 all budget-meal">--}}
+                {{--                    <div class="single-gallery">--}}
+                {{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g3.jpg') }}">--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div class="col-lg-4 col-md-6 col-sm-6 all breakfast">--}}
+                {{--                    <div class="single-gallery">--}}
+                {{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g4.jpg') }}">--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div class="col-lg-4 col-md-6 col-sm-6 all lunch">--}}
+                {{--                    <div class="single-gallery">--}}
+                {{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g5.jpg') }}">--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                {{--                <div class="col-lg-4 col-md-6 col-sm-6 all buffet">--}}
+                {{--                    <div class="single-gallery">--}}
+                {{--                        <img alt="" class="img-fluid" src="{{ ('template/img/g6.jpg') }}">--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
             </div>
         </div>
 
@@ -336,66 +352,24 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Latest From Our Blog</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                    <h1 class="mb-10">Nosso Instagram <i class="fa fa-instagram"></i></h1>
+{{--                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut--}}
+{{--                        labore et dolore magna aliqua.</p>--}}
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 single-blog">
-                <div id="instafeed"></div>
+        <div class="row" id="instafeed">
+            <div class="col-12">
+                <h3 class="text-center"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Carregando feed do instagram...</h3>
+            </div>
+{{--            <div id="instafeed"></div>--}}
+{{--            <div class="col-lg-3 col-md-6 col-sm-6 single-blog">--}}
 {{--                <div class="thumb">--}}
-{{--                    <img alt="" class="img-fluid" src="img/b1.jpg">--}}
+{{--                    <img alt="" class="img-fluid" src="{{ asset('template/img/b1.jpg') }}">--}}
 {{--                </div>--}}
 {{--                <p class="date">10 Jan 2018</p>--}}
 {{--                <a href="blog-single.html"><h4>Cooking Perfect Fried Rice--}}
 {{--                        in minutes</h4></a>--}}
-{{--                <p>--}}
-{{--                    inappropriate behavior ipsum dolor sit amet, consectetur.--}}
-{{--                </p>--}}
-{{--                <div class="meta-bottom d-flex justify-content-between">--}}
-{{--                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>--}}
-{{--                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>--}}
-{{--                </div>--}}
-            </div>
-{{--            <div class="col-lg-3 col-md-6 col-sm-6 single-blog">--}}
-{{--                <div class="thumb">--}}
-{{--                    <img alt="" class="img-fluid" src="img/b2.jpg">--}}
-{{--                </div>--}}
-{{--                <p class="date">10 Jan 2018</p>--}}
-{{--                <a href="blog-single.html"><h4>Secret of making Heart--}}
-{{--                        Shaped eggs</h4></a>--}}
-{{--                <p>--}}
-{{--                    inappropriate behavior ipsum dolor sit amet, consectetur.--}}
-{{--                </p>--}}
-{{--                <div class="meta-bottom d-flex justify-content-between">--}}
-{{--                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>--}}
-{{--                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-6 col-sm-6 single-blog">--}}
-{{--                <div class="thumb">--}}
-{{--                    <img alt="" class="img-fluid" src="img/b3.jpg">--}}
-{{--                </div>--}}
-{{--                <p class="date">10 Jan 2018</p>--}}
-{{--                <a href="blog-single.html"><h4>How to check steak if--}}
-{{--                        it is tender or not</h4></a>--}}
-{{--                <p>--}}
-{{--                    inappropriate behavior ipsum dolor sit amet, consectetur.--}}
-{{--                </p>--}}
-{{--                <div class="meta-bottom d-flex justify-content-between">--}}
-{{--                    <p><span class="lnr lnr-heart"></span> 15 Likes</p>--}}
-{{--                    <p><span class="lnr lnr-bubble"></span> 02 Comments</p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-3 col-md-6 col-sm-6 single-blog">--}}
-{{--                <div class="thumb">--}}
-{{--                    <img alt="" class="img-fluid" src="img/b4.jpg">--}}
-{{--                </div>--}}
-{{--                <p class="date">10 Jan 2018</p>--}}
-{{--                <a href="blog-single.html"><h4>Seaseme and black seed--}}
-{{--                        Flavored Bun Rocks</h4></a>--}}
 {{--                <p>--}}
 {{--                    inappropriate behavior ipsum dolor sit amet, consectetur.--}}
 {{--                </p>--}}
@@ -415,11 +389,7 @@
         <div class="row justify-content-between align-items-center">
             <div class="col-lg-6 reservation-left">
                 <h1 class="text-white">Entre em contato conosco</h1>
-                <p class="text-white pt-20">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam. Quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea.
-                </p>
+                <p class="text-white pt-20">Preencha o formulário ao lado, retornaremos o contato o mais rápido possível. Ou, se preferir nos chame no WhatsApp, logo a sua direita da tela, para conversarmos.</p>
             </div>
             <div class="col-lg-5 reservation-right">
                 <form action="{{ route('contato') }}" method="POST" class="form-wrap text-center" id="formContato">
@@ -433,9 +403,10 @@
                     <div class="invalid-feedback">Preencha o campo telefone</div>
                     <textarea class="form-control" name="message" placeholder="Sua mensagem" rows="4"></textarea>
                     <div class="invalid-feedback">Preencha o campo mensagem</div>
-                    <div class="g-recaptcha" data-sitekey="6Ldgmv8UAAAAAEu8tbQ3baO44wNWBlCooYJS2lk2" id="googleCaptcha"></div>
+                    <div class="g-recaptcha" data-sitekey="6Ldz_a8ZAAAAAN_jXTUjc40JYtd-CP11khr0-Ik7"
+                         id="googleCaptcha"></div>
                     <div class="invalid-feedback">Confirme que você não é um robô!</div>
-                    <button class="primary-btn text-uppercase mt-20" type="submit">Enviar mensagem</button>
+                    <button class="primary-btn text-uppercase mt-20" type="submit" style="text-transform: uppercase!important;">Enviar mensagem</button>
                     <input type="reset" style="display: none;" value="reset" id="formContatoReset">
                     <div id="rowAlert" class="alert alert-danger mt-3" style="display: none;"></div>
                 </form>
@@ -526,7 +497,7 @@
     </div>
 </footer>
 <div>
-    <a href="https://api.whatsapp.com/send?phone=5527998494865" target="_blank"
+    <a href="https://api.whatsapp.com/send?phone=5527997145004" target="_blank"
        style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888; z-index:1000;">
         <i style="margin-top:15px" class="fa fa-whatsapp"></i>
     </a>
@@ -549,11 +520,6 @@
 <script src="{{ asset('template/js/main.js') }}"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="{{ asset('template/js/instafeed.js') }}"></script>
-<script type="text/javascript">
-    var feed = new Instafeed({
-        accessToken: 'IGQVJXU0JmY1psUXBBR3F0ZAE9ScmVWbTNWamJYRGlNVUctRGRmYkhmNnJWSy1fcmxNeHFRODJfcl9tZAnlnd3p4dXp0c2VEc2FOZAjkxYXA0RXdkbjlpU0hrQ0tHckIzRGtNTy02bERNSU1DUVB5WDhnOAZDZD'
-    });
-    feed.run();
-</script>
+<script src="{{ asset('template/js/instafeedog.js') }}"></script>
 </body>
 </html>

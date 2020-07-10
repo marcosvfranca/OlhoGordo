@@ -15,7 +15,7 @@ class ContatoController extends Controller
         $data = $request->all();
         $contato = new Contato($data);
 
-        $resposta = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Ldgmv8UAAAAADkeL0nof2-PDKvWSFUMmdS5v16B&response=" . $contato['g-recaptcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']));
+        $resposta = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6Ldz_a8ZAAAAAGSS75V5PeqjrxEIr8QdjGCQhS6X&response=" . $contato['g-recaptcha-response'] . "&remoteip=" . $_SERVER['REMOTE_ADDR']));
         if (isset($resposta->success) and !$resposta->success)
             return response()->json(['sucesso' => false, 'mensagem' => 'Confirme que você não é um robô']);
 
