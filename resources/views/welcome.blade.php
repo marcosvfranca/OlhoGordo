@@ -109,39 +109,20 @@
         <div class="row fullscreen align-items-center">
             <div class="col-lg-12 text-uppercase text-center">
                 <style>
-                    .imgPerson {
-                        padding-top: 15px;
-                        max-width: 80%;
-                        height: 500px;
-                    }
-                    .imgQuemSomos {
-                        max-width: 500px;
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                    .imgTrabalhou {
-                        max-width: 250px;
-                        display: block;
-                        margin: auto;
-                        vertical-align: middle;
-                    }
-                    .textQuemSomos {
-                        margin: 25px;
-                        font-weight: 600;
-                        font-size: 25px;
-                        text-align: center;
-                        line-height: 2rem;
-                    }
-                    .section-og {
-                        background-color: #000000 !important; color: #fdbc15;padding-top: 25px; padding-bottom: 25px;
-                    }
                     @media (max-width: 480px) {
                         .imgPerson {
                             height: 400px;
                         }
+                    }
+                    @media (min-width: 576px) {
                         .imgTrabalhou {
-                            max-width: 100px;
+                            max-width: 15rem !important;
+                        }
+                        .textQuemSomos {
+                            margin: 25px !important;
+                            font-size: 25px !important;
+                            text-align: justify !important;
+                            line-height: 2rem !important;
                         }
                     }
                     @media (max-width: 767px) {
@@ -153,6 +134,38 @@
                         .imgPerson {
                             height: 400px;
                         }
+                    }
+
+                    .imgPerson {
+                        padding-top: 15px;
+                        max-width: 80%;
+                        height: 500px;
+                    }
+                    .imgQuemSomos {
+                        max-width: 80%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    .imgTrabalhou {
+                        max-width: 100%;
+                        display: block;
+                        margin: auto;
+                        margin-bottom: 2rem;
+                        vertical-align: middle;
+                        transition: transform .2s
+                    }
+                    .imgTrabalhou:hover {
+                        transform: scale(1.2)
+                    }
+                    .textQuemSomos {
+                        font-weight: 600;
+                        font-size: 16px;
+                        text-align: justify;
+                        line-height: 1.3rem;
+                    }
+                    .section-og {
+                        background-color: #000000 !important; color: #fdbc15;padding-top: 25px; padding-bottom: 25px;
                     }
                 </style>
                 <img alt="Olho Gordo" title="Olho Gordo" src="../template/imagens/yellow_square.png" class="imgPerson">
@@ -171,15 +184,38 @@
         <div class="row align-items-center">
             <div class="col-12">
                 <img src="{{ asset('template/imagens/QUEMSOMOS.png') }}" alt="Olho Gordo" class="imgQuemSomos">
-                <p class="textQuemSomos">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p class="textQuemSomos">O Olho Gordo é uma empresa de marketing de conteúdo especializada em gastronomia, já atendemos diversas empresas de diversos segmentos, sempre gerando desejo e consequentemente aumento interação e vendas!</p>
+                <p class="textQuemSomos">Se você quer sua marca reconhecida e respeitada, com produtos apresentáveis, conheça abaixo nosso portifólio, temos certeza que poderemos fazer um ótimo trabalho juntos!</p>
             </div>
             <div class="col-12 mt-3">
                 <img src="{{ asset('template/imagens/FOTOGRAFIA.png') }}" alt="Olho Gordo" class="imgQuemSomos">
-                <p class="textQuemSomos">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
             </div>
+        </div>
+    </div>
+    <style>
+        .imgGaleria {
+            max-width: 100%;
+        }
+        .divGaleria {
+            padding: 0;
+        }
+    </style>
+    <div class="row" style="max-width: 100%; margin-left: 0;">
+        @foreach($galeria->take(12) as $img)
+            <div class="col-3 divGaleria">
+                <img src="{{ asset($img) }}" alt="{{ $img }}" class="imgGaleria">
+            </div>
+        @endforeach
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
             <div class="col-lg-12 mt-3">
                 <img src="{{ asset('template/imagens/FILMAGENS.png') }}" alt="Olho Gordo" class="imgQuemSomos">
-                <p class="textQuemSomos">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p class="textQuemSomos">Quer contar sua história? Quer que seus clientes vejam a limpeza do seu ambiente? 
+                    <br>
+                    Quer mostrar todo o carinho que você tem em cozinhar? Nós também podemos te ajudar com isso!
+                    <br>
+                    Nossa equipe conta com um filmmaker que irão registrar todos os seus momentos para dar transparência e segurança para seus clientes, além de contar lindas histórias!</p>
             </div>
             <div class="col-lg-12 mt-3">
                 <div class="embed-responsive embed-responsive-21by9" id="videoYt">
@@ -189,29 +225,20 @@
             </div>
             <div class="col-12 mt-5">
                 <img src="{{ asset('template/imagens/GESTAOREDESSOCIAIS.png') }}" alt="Olho Gordo" class="imgQuemSomos">
-                <p class="textQuemSomos">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p class="textQuemSomos">Nós sabemos da correria de quem cozinha e trabalha com gastronomia, não tem tempo de cuidar da
+                    vida digital da sua empresa? Nós cuidamos para você!
+                    Nossa equipe tem especialistas em design gráfico para fazermos artes promocionais, direcionamento
+                    de público e organização de conteúdo!
+                    Além disso, também fazemos seu tráfego pago, para que sua marca alcance cada vez mais pessoas!</p>
             </div>
             <div class="col-12 mt-5">
                 <img src="{{ asset('template/imagens/QUEMJATRABALHOUCOMAGENTE.png') }}" alt="Olho Gordo" class="imgQuemSomos">
                 <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset('template/imagens/NEGODONN.png') }}" alt="Nego Donn" class="imgTrabalhou">
+                    @foreach($clientes as $cliente)
+                    <div class="col-6 col-sm-4">
+                        <img src="{{ asset($cliente) }}" alt="{{ $cliente }}" class="imgTrabalhou">
                     </div>
-                    <div class="col-4">
-                        <img src="{{ asset('template/imagens/LAPIZZA.png') }}" alt="La Pizza" class="imgTrabalhou">
-                    </div>
-                    <div class="col-4">
-                        <img src="{{ asset('template/imagens/GERUMIM.png') }}" alt="Gerumim" class="imgTrabalhou">
-                    </div>
-                    <div class="col-4">
-                        <img src="{{ asset('template/imagens/DANMACARRONE.png') }}" alt="Dan Macarrone" class="imgTrabalhou">
-                    </div>
-                    <div class="col-4">
-                        <img src="{{ asset('template/imagens/THEROSE.png') }}" alt="The Rose" class="imgTrabalhou">
-                    </div>
-                    <div class="col-4">
-                        <img src="{{ asset('template/imagens/CHEIROVERDE.png') }}" alt="Cheiro Verde" class="imgTrabalhou">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

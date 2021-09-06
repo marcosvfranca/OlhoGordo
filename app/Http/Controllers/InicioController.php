@@ -8,8 +8,8 @@ class InicioController extends Controller
 {
     public function index()
     {
-        $imagens = Galeria::orderBy('created_at', 'desc')->get();
-
-        return view('welcome', compact('imagens'));
+        $clientes = collect(glob('template/imagens/clientes/*.png'))->take(9);
+        $galeria = collect(glob('template/imagens/galeria/*.png'));
+        return view('welcome', compact('clientes', 'galeria'));
     }
 }
