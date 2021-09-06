@@ -109,39 +109,20 @@
         <div class="row fullscreen align-items-center">
             <div class="col-lg-12 text-uppercase text-center">
                 <style>
-                    .imgPerson {
-                        padding-top: 15px;
-                        max-width: 80%;
-                        height: 500px;
-                    }
-                    .imgQuemSomos {
-                        max-width: 500px;
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                    .imgTrabalhou {
-                        max-width: 250px;
-                        display: block;
-                        margin: auto;
-                        vertical-align: middle;
-                    }
-                    .textQuemSomos {
-                        margin: 25px;
-                        font-weight: 600;
-                        font-size: 25px;
-                        text-align: center;
-                        line-height: 2rem;
-                    }
-                    .section-og {
-                        background-color: #000000 !important; color: #fdbc15;padding-top: 25px; padding-bottom: 25px;
-                    }
                     @media (max-width: 480px) {
                         .imgPerson {
                             height: 400px;
                         }
+                    }
+                    @media (min-width: 576px) {
                         .imgTrabalhou {
-                            max-width: 100px;
+                            max-width: 15rem !important;
+                        }
+                        .textQuemSomos {
+                            margin: 25px !important;
+                            font-size: 25px !important;
+                            text-align: justify !important;
+                            line-height: 2rem !important;
                         }
                     }
                     @media (max-width: 767px) {
@@ -153,6 +134,38 @@
                         .imgPerson {
                             height: 400px;
                         }
+                    }
+
+                    .imgPerson {
+                        padding-top: 15px;
+                        max-width: 80%;
+                        height: 500px;
+                    }
+                    .imgQuemSomos {
+                        max-width: 80%;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    .imgTrabalhou {
+                        max-width: 100%;
+                        display: block;
+                        margin: auto;
+                        margin-bottom: 2rem;
+                        vertical-align: middle;
+                        transition: transform .2s
+                    }
+                    .imgTrabalhou:hover {
+                        transform: scale(1.2)
+                    }
+                    .textQuemSomos {
+                        font-weight: 600;
+                        font-size: 16px;
+                        text-align: justify;
+                        line-height: 1.3rem;
+                    }
+                    .section-og {
+                        background-color: #000000 !important; color: #fdbc15;padding-top: 25px; padding-bottom: 25px;
                     }
                 </style>
                 <img alt="Olho Gordo" title="Olho Gordo" src="../template/imagens/yellow_square.png" class="imgPerson">
@@ -214,7 +227,7 @@
                 <img src="{{ asset('template/imagens/GESTAOREDESSOCIAIS.png') }}" alt="Olho Gordo" class="imgQuemSomos">
                 <p class="textQuemSomos">Nós sabemos da correria de quem cozinha e trabalha com gastronomia, não tem tempo de cuidar da
                     vida digital da sua empresa? Nós cuidamos para você!
-                    Nossa equipe tem especialistas em design gráfico para fazermos artes promocionais,direcionamento
+                    Nossa equipe tem especialistas em design gráfico para fazermos artes promocionais, direcionamento
                     de público e organização de conteúdo!
                     Além disso, também fazemos seu tráfego pago, para que sua marca alcance cada vez mais pessoas!</p>
             </div>
@@ -222,7 +235,7 @@
                 <img src="{{ asset('template/imagens/QUEMJATRABALHOUCOMAGENTE.png') }}" alt="Olho Gordo" class="imgQuemSomos">
                 <div class="row">
                     @foreach($clientes as $cliente)
-                    <div class="col-4">
+                    <div class="col-6 col-sm-4">
                         <img src="{{ asset($cliente) }}" alt="{{ $cliente }}" class="imgTrabalhou">
                     </div>
                     @endforeach
