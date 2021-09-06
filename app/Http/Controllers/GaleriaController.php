@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Galeria;
 use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriaController extends Controller
 {
@@ -32,5 +33,9 @@ class GaleriaController extends Controller
 
         return redirect('galeria');
     }
-
+//
+//    public function teste()
+//    {
+//        dd(public_path('storage'));
+//    }
 }

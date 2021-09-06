@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'InicioController@index');
 
+//Route::get('/teste', 'GaleriaController@teste');
+
 Route::post('/contato', 'ContatoController@contato')->name('contato');
 
 Auth::routes();
