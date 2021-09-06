@@ -116,7 +116,7 @@
                     }
                     @media (min-width: 576px) {
                         .imgTrabalhou {
-                            max-width: 15rem !important;
+                            max-width: 10rem !important;
                         }
                         .textQuemSomos {
                             margin: 25px !important;
@@ -150,7 +150,7 @@
                     .imgTrabalhou {
                         max-width: 100%;
                         display: block;
-                        margin: auto;
+                        /* margin: auto; */
                         margin-bottom: 2rem;
                         vertical-align: middle;
                         transition: transform .2s
@@ -166,6 +166,12 @@
                     }
                     .section-og {
                         background-color: #000000 !important; color: #fdbc15;padding-top: 25px; padding-bottom: 25px;
+                    }
+                    .imgGaleria {
+                        max-width: 100%;
+                    }
+                    .divGaleria {
+                        padding: 0;
                     }
                 </style>
                 <img alt="Olho Gordo" title="Olho Gordo" src="../template/imagens/yellow_square.png" class="imgPerson">
@@ -185,21 +191,13 @@
             <div class="col-12">
                 <img src="{{ asset('template/imagens/QUEMSOMOS.png') }}" alt="Olho Gordo" class="imgQuemSomos">
                 <p class="textQuemSomos">O Olho Gordo é uma empresa de marketing de conteúdo especializada em gastronomia, já atendemos diversas empresas de diversos segmentos, sempre gerando desejo e consequentemente aumento interação e vendas!</p>
-                <p class="textQuemSomos">Se você quer sua marca reconhecida e respeitada, com produtos apresentáveis, conheça abaixo nosso portifólio, temos certeza que poderemos fazer um ótimo trabalho juntos!</p>
+                <p class="textQuemSomos">Se você quer sua marca reconhecida e respeitada, com produtos apresentáveis, conheça abaixo nosso portfólio, temos certeza que poderemos fazer um ótimo trabalho juntos!</p>
             </div>
             <div class="col-12 mt-3">
                 <img src="{{ asset('template/imagens/FOTOGRAFIA.png') }}" alt="Olho Gordo" class="imgQuemSomos">
             </div>
         </div>
     </div>
-    <style>
-        .imgGaleria {
-            max-width: 100%;
-        }
-        .divGaleria {
-            padding: 0;
-        }
-    </style>
     <div class="row" style="max-width: 100%; margin-left: 0;">
         @foreach($galeria->take(12) as $img)
             <div class="col-3 divGaleria">
@@ -235,8 +233,8 @@
                 <img src="{{ asset('template/imagens/QUEMJATRABALHOUCOMAGENTE.png') }}" alt="Olho Gordo" class="imgQuemSomos">
                 <div class="row">
                     @foreach($clientes as $cliente)
-                    <div class="col-6 col-sm-4">
-                        <img src="{{ asset($cliente) }}" alt="{{ $cliente }}" class="imgTrabalhou">
+                    <div class="col-4 col-sm-2 d-flex align-items-center">
+                        <img src="{{ asset($cliente) }}" alt="{{ $cliente }}" class="imgTrabalhou d-flex align-items-center">
                     </div>
                     @endforeach
                 </div>
