@@ -30,9 +30,9 @@ $(document).ready(function() {
 
 $(window).scroll(function(){
     if($(document).scrollTop() > 10) {
-        $('#arrowEsc').hide();
+        $('#arrowEsc, #logo').hide();
     } else {
-        $('#arrowEsc').show();
+        $('#arrowEsc, #logo').show();
     }
 
 });
