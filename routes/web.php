@@ -16,13 +16,13 @@ Route::get('/', 'InicioController@index');
 
 //Route::get('/teste', 'GaleriaController@teste');
 
-Route::post('/contato', 'ContatoController@contato')->name('contato');
+// Route::post('/contato', 'ContatoController@contato')->name('contato');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/ogadmin', 'HomeController@index')->name('home')->middleware('auth');
+// Route::get('/ogadmin', 'HomeController@index')->name('home')->middleware('auth');
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
 //	Route::get('table-list', function () {
 //		return view('pages.table_list');
 //	})->name('table');
@@ -51,15 +51,15 @@ Route::group(['middleware' => 'auth'], function () {
 //		return view('pages.upgrade');
 //	})->name('upgrade');
 
-	Route::get('galeria', 'GaleriaController@index')->name('galeria');
-    Route::post('inserir-imagem-galeria', 'GaleriaController@inserir')->name('inserir-galeria');
-    Route::get('deleta-imagem-galeria/{id}', 'GaleriaController@deletar')->name('deletar-galeria');
-});
+// 	Route::get('galeria', 'GaleriaController@index')->name('galeria');
+//     Route::post('inserir-imagem-galeria', 'GaleriaController@inserir')->name('inserir-galeria');
+//     Route::get('deleta-imagem-galeria/{id}', 'GaleriaController@deletar')->name('deletar-galeria');
+// });
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-});
+// Route::group(['middleware' => 'auth'], function () {
+// 	Route::resource('user', 'UserController', ['except' => ['show']]);
+// 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+// 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+// 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+// });
 
